@@ -9,20 +9,25 @@ import {
   EntityStringField,
   EntityTextField,
   EntityFieldConstructor,
+  EntityObjectField,
 } from "./fields";
 import { Schema } from "../schema/schema";
 import { SchemaDefinition, FieldDefinition, SchemaFieldType } from "../schema/definition";
 import { RedisJsonData, RedisHashData } from "../client";
 
-const ENTITY_FIELD_CONSTRUCTORS: Record<SchemaFieldType, EntityFieldConstructor> = {
-  'string': EntityStringField,
-  'number': EntityNumberField,
-  'boolean': EntityBooleanField,
-  'text': EntityTextField,
-  'date': EntityDateField,
-  'point': EntityPointField,
-  'string[]': EntityStringArrayField
-}
+const ENTITY_FIELD_CONSTRUCTORS: Record<
+  SchemaFieldType,
+  EntityFieldConstructor
+> = {
+  string: EntityStringField,
+  number: EntityNumberField,
+  boolean: EntityBooleanField,
+  text: EntityTextField,
+  date: EntityDateField,
+  point: EntityPointField,
+  "string[]": EntityStringArrayField,
+  object: EntityObjectField,
+};
 
 /**
  * An Entity is the class from which objects that Redis OM maps to are made. You need
